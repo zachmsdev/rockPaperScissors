@@ -44,7 +44,7 @@ const game = () => {
     }
 }
 
-game();
+// game();
 
 
 
