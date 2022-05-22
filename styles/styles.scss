@@ -29,6 +29,10 @@ body {
     height: 650px;
     width: 700px;
     background: #90EE90;
+    position: relative;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, 
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, 
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 
 // ---------------------  Header
@@ -165,7 +169,48 @@ footer {
 
 // ----------------------- Start / End Screen
 
+.startScreen {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: black;
+    z-index: 3;
+    @include bringCenter();
+    & > button {
+        padding: 1rem 3rem;
+        cursor: pointer;
+        font-family: 'Koulen', 'Arial';
+        font-size: 2rem;
+        transition: transform 0.2s ease;
+        &:hover {
+            transform: translate(0.2rem, 0.2rem);
+        }
+    }
+}
 
+.endScreen {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background: black;
+    z-index: 3;
+    @include bringCenter();
+    flex-direction: column;
+    gap: 3rem;
+    display: none;       // display none atm
+    & > button {
+        padding: 1rem 3rem;
+        cursor: pointer;
+        font-family: 'Koulen', 'Arial';
+        font-size: 2rem;
+    }
+    & > h1 {
+        font-size: 6rem;
+        color: white;
+        font-family: 'Koulen';
+    }
+}
 
 // ----------------------- Media Queries
 
