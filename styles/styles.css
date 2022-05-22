@@ -1,5 +1,241 @@
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+  font-size: 62.5%;
+}
+
+body {
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.rPsGame {
+  height: 650px;
+  width: 700px;
+  background: #90EE90;
+}
+
+header {
+  font-family: 'Koulen', 'Arial';
+  height: 20%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 4.5rem;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+section {
+  height: 55%;
+  background: salmon;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 2em;
+  position: relative;
+}
+
+section div {
+  width: 25%;
+  height: 40%;
+  background: yellow;
+  border-radius: 50%;
+}
+
+section > .rock {
+  background-image: url(../images/rock.jpg);
+  background-size: cover;
+  background-position-x: center;
+}
+
+section > .paper {
+  background-image: url(../images/paper.jpg);
+  background-size: 100% 150%;
+  background-position-y: center;
+}
+
+section > .scissors {
+  background-image: url(../images/scissors.jpg);
+  background-size: contain;
+  background-position-y: center;
+}
+
+h4 {
+  font-size: 2rem;
+  font-family: 'Koulen';
+  letter-spacing: 0.5rem;
+  position: absolute;
+}
+
+.rock.comp::before {
+  content: 'Computer';
+  font-size: 1.5rem;
+  font-family: 'Arial';
+  display: block;
+  -webkit-transform: translateX(-3.5rem);
+          transform: translateX(-3.5rem);
+}
+
+.rock.you::before {
+  content: 'You';
+  font-size: 1.5rem;
+  font-family: 'Arial';
+  display: block;
+}
+
+.you {
+  cursor: pointer;
+}
+
+footer {
+  height: 25%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.scoreboard {
+  height: 80%;
+  width: 35%;
+  background: firebrick;
+}
+
+.scoreboard .score {
+  height: 75%;
+  background: black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.scoreboard .score > .centerScore {
+  height: 75%;
+  width: 85%;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 7rem;
+  font-family: 'Koulen', 'Arial';
+}
+
+.scoreboard > .legs {
+  height: 25%;
+  background: #90EE90;
+  position: relative;
+}
+
+.scoreboard > .legs::before {
+  content: '';
+  width: 1em;
+  height: 100%;
+  background: black;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.scoreboard > .legs::after {
+  content: '';
+  width: 1em;
+  height: 100%;
+  background: black;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.playerScore {
+  display: block;
+  padding-right: 0.2em;
+}
+
+.compScore {
+  display: block;
+  padding-left: 0.2em;
+}
+
+@media (max-width: 600px) {
+  html {
+    font-size: 55%;
+  }
+  .rPsGame {
+    width: 95%;
+  }
+  .rPsGame section div {
+    width: 27%;
+    height: 30%;
+  }
+  section {
+    gap: 1.5em;
+  }
+  .scoreboard {
+    width: 45%;
+  }
+  .rock.comp::before {
+    content: 'Comp';
+    -webkit-transform: translateX(-2.3rem);
+            transform: translateX(-2.3rem);
+  }
+  .rock.you::before {
+    content: 'You';
+    font-size: 1.5rem;
+    font-family: 'Arial';
+    -webkit-transform: translateX(-1rem);
+            transform: translateX(-1rem);
+  }
 }
 /*# sourceMappingURL=styles.css.map */

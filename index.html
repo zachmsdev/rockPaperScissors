@@ -5,10 +5,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Koulen&display=swap" rel="stylesheet">
     <link rel='stylesheet' href='styles/styles.css'>
 </head>
 <body>
-    
+        <main class='rPsGame'>
+            <header>Rock Paper Scissors</header>
+            <section>
+                <div class='rock comp'></div>
+                <div class='paper comp'></div>
+                <div class='scissors comp'></div>
+                <div class='rock you'></div>
+                <div class='paper you'></div>
+                <div class='scissors you'></div>
+                <h4>You Win!</h4>
+            </section>
+            <footer>
+                <div class='scoreboard'>
+                    <div class='score'>
+                        <div class='centerScore'>
+                            <span class='playerScore'>0</span>-<span class='compScore'>0</span>
+                        </div>
+                    </div>
+                    <div class='legs'></div>
+                </div>
+            </footer>
+        </main>
+
     <script src='rPsApp.js'></script>
 </body>
 </html>
