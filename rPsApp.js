@@ -2,7 +2,15 @@
 // Rock Paper Scissors
 
 const startButton = document.querySelector('.startScreen > button');
+const restartButton = document.querySelector('.endScreen > button');
+const yourChoices = Array.from(document.querySelectorAll('.you'));
+const computerChoices = Array.from(document.querySelectorAll('.comp'));
+const resultText = document.querySelector('h4');
+let playerScore = document.querySelector('[class="playerScore"]');
+let computerScore = document.querySelector('[class="compScore"]');
+let yourScore = 0, compScore = 0;
 
+// Functions
 
 const computerPlay = () => {
     const choices = [
@@ -15,25 +23,74 @@ const computerPlay = () => {
     return randomChoice;
 }
 
-const playRound = (playerSelection, computerSelection) => {
-    playerSelection = playerSelection.toLowerCase();
-    if (playerSelection === 'rock' && computerSelection === 'scissors') {
-        console.log('You win! Rock beats scissors!');
-    } else if (playerSelection === 'rock' && computerSelection === 'paper') {
-        console.log('You lose.. Computer picked paper!');
-    } else if (playerSelection === 'paper' && computerSelection === 'scissors') {
-        console.log('You lose! Paper can\'t beat scissors!');
-    } else if (playerSelection === 'paper' && computerSelection === 'rock') {
-        console.log('You win. Paper beats rock.');
-    } else if (playerSelection === 'scissors' && computerSelection === 'rock') {
-        console.log('You lose.. Computer picked Rock!');
-    } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
-        console.log('You win! Scissors beats paper! :D');
-    } else if (playerSelection === computerSelection) {         // tie game
-        console.log('Tie game!!');
-    } else {
-        console.log('Hmm, not working.. type in Rock / Paper / Scissors!');
+const scoreboardUpdate = () => {
+    if (yourScore >= 5 || compScore >= 5) {
+        yourScore = 0, compScore = 0;
     }
+    playerScore.textContent = yourScore;
+    computerScore.textContent = compScore;
+}
+
+const highlight = (computerSelection) => {
+    const newEntry = document.querySelector(`.${computerSelection}.comp`);
+    computerChoices.forEach((compChoice) => {
+        if (compChoice.classList.contains('computerSelected')) {
+            compChoice.classList.remove('computerSelected');
+        }
+    });
+    newEntry.classList.add('computerSelected');
+}
+
+const playRound = (playerSelection, computerSelection) => {
+    if (yourScore >= 4 || compScore >= 4) endScreen();
+    if (playerSelection.contains('rock') && computerSelection === 'scissors') {
+           resultText.textContent = 'You win! Rock beats scissors.';
+        yourScore++;
+        scoreboardUpdate();
+        console.log('You win! Rock beats scissors.')
+    } else if (playerSelection.contains('rock') && computerSelection === 'paper') {
+        resultText.textContent = 'You lost.. computer picked paper.';
+        compScore++;
+        scoreboardUpdate();
+        console.log('You lose.. comp picked paper!');
+    } else if (playerSelection.contains('rock') && computerSelection === 'rock') {
+        resultText.textContent = 'Tie!';
+        console.log('You tied!! Both rock.');
+    } else if (playerSelection.contains('paper') && computerSelection === 'rock') {
+        resultText.textContent = 'You win! Paper beats rock.';
+        yourScore++;
+        scoreboardUpdate();
+        console.log('You win! Paper beats rock.');
+    } else if (playerSelection.contains('paper') && computerSelection === 'scissors') {
+        resultText.textContent = 'You lost. :( Scissors cut the paper.';
+        compScore++;
+        scoreboardUpdate();
+        console.log('You lost. scissors beats papeR!');
+    } else if (playerSelection.contains('paper') && computerSelection === 'paper') {
+        resultText.textContent = 'Tie!';
+        console.log('You tied!! Both paper.');
+    } else if (playerSelection.contains('scissors') && computerSelection === 'paper') {
+        resultText.textContent = 'You win! Scissors beats paper.';
+        yourScore++;
+        scoreboardUpdate();
+        console.log('You win! Scissors beats paper.');
+    } else if (playerSelection.contains('scissors') && computerSelection === 'rock') {
+        resultText.textContent = 'Lost.. Rock crushed your scissors!';
+        compScore++;
+        scoreboardUpdate();
+        console.log('You lost. :( Rock owns scissors.');
+    } else if (playerSelection.contains('scissors') && computerSelection === 'scissors') {
+        resultText.textContent = 'Tie!';
+        console.log('You tied!! Both scissors.');
+    }
+}
+
+const game = (e) => {
+        const playerSelection = e.target.classList;
+        const computerSelection = computerPlay();
+        playRound(playerSelection, computerSelection);
+        highlight(computerSelection);
+        console.log(yourScore + '....' + compScore)
 }
 
 const fadeStartScreen = () => {
@@ -45,19 +102,33 @@ const fadeStartScreen = () => {
     }, 1200);
 }
 
-const game = () => {
-    for (let z = 0; z < 5; z++) {
-        const playerSelection = prompt('Rock, Paper, or Scissors?');
-        const computerSelection = computerPlay();
-        playRound(playerSelection, computerSelection);
-        if (z >= 4 ) {
-            console.error('Game Over!');
-        } 
-    }
+const endScreen = () => {
+    const endScreen = document.querySelector('.endScreen');
+    endScreen.classList.add('showEndscreen');
 }
 
-// game();
+const restartGame = () => {
+    const endScreen = document.querySelector('.endScreen');
+    endScreen.classList.remove('showEndscreen');
+    yourScore = 0;
+    compScore = 0;
+    playerScore.textContent = 0;
+    computerScore.textContent = 0;
+    resultText.textContent = 'First to 5 wins! GL';
+    computerChoices.forEach((compChoice) => {
+        if (compChoice.classList.contains('computerSelected')) {
+            compChoice.classList.remove('computerSelected');
+        }
+    });
+}
+
+// Event Listeners
+
 startButton.addEventListener('click', fadeStartScreen);
+yourChoices.forEach(button => button.addEventListener('click', (e) => {
+    game(e);
+}));
+restartButton.addEventListener('click', restartGame);
 
 
 

@@ -80,9 +80,9 @@ section {
 }
 
 h4 {
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-family: 'Koulen';
-    letter-spacing: 0.5rem;
+    letter-spacing: 0.1rem;
     position: absolute;
 }
 
@@ -175,7 +175,7 @@ footer {
     width: 100%;
     background: black;
     z-index: 3;
-    @include bringCenter();
+    @include bringCenter();             // display none for now!
     & > button {
         padding: 1rem 3rem;
         cursor: pointer;
@@ -198,7 +198,7 @@ footer {
     @include bringCenter();
     flex-direction: column;
     gap: 3rem;
-    display: none;       // display none atm
+    display: none;       
     & > button {
         padding: 1rem 3rem;
         cursor: pointer;
@@ -210,6 +210,15 @@ footer {
         color: white;
         font-family: 'Koulen';
     }
+}
+
+.computerSelected {
+    background-color: #ffb700;
+    background-blend-mode: hard-light;
+}
+
+.showEndscreen {
+    display: flex;
 }
 
 // ----------------------- Media Queries
