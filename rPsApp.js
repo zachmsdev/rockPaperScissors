@@ -104,7 +104,10 @@ const fadeStartScreen = () => {
 
 const endScreen = () => {
     const endScreen = document.querySelector('.endScreen');
+    const endText = document.querySelector('.endScreen h1');
     endScreen.classList.add('showEndscreen');
+    if (yourScore === 4) endText.textContent = 'You won the game!'
+    if (compScore === 4) endText.innerHTML = 'You lost the game!<br /> Try again?'
 }
 
 const restartGame = () => {
@@ -125,9 +128,7 @@ const restartGame = () => {
 // Event Listeners
 
 startButton.addEventListener('click', fadeStartScreen);
-yourChoices.forEach(button => button.addEventListener('click', (e) => {
-    game(e);
-}));
+yourChoices.forEach(button => button.addEventListener('click', game));
 restartButton.addEventListener('click', restartGame);
 
 

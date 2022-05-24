@@ -45,6 +45,7 @@ header {
       -ms-flex-align: center;
           align-items: center;
   font-size: 4.5rem;
+  text-shadow: 0px 15px 5px rgba(0, 0, 0, 0.1), 10px 20px 5px rgba(0, 0, 0, 0.05), -10px 20px 5px rgba(0, 0, 0, 0.05);
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -53,7 +54,6 @@ header {
 
 section {
   height: 55%;
-  background: salmon;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -273,12 +273,24 @@ footer {
   cursor: pointer;
   font-family: 'Koulen', 'Arial';
   font-size: 2rem;
+  -webkit-transition: -webkit-transform 0.2s ease;
+  transition: -webkit-transform 0.2s ease;
+  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, -webkit-transform 0.2s ease;
+}
+
+.endScreen > button:hover {
+  -webkit-transform: translate(0.2rem, 0.2rem);
+          transform: translate(0.2rem, 0.2rem);
 }
 
 .endScreen > h1 {
-  font-size: 6rem;
+  font-size: 5rem;
   color: white;
   font-family: 'Koulen';
+  line-height: 1.3;
+  margin-bottom: 0.5em;
+  text-align: center;
 }
 
 .computerSelected {
@@ -294,7 +306,7 @@ footer {
 
 @media (max-width: 600px) {
   html {
-    font-size: 55%;
+    font-size: 50%;
   }
   .rPsGame {
     width: 95%;
@@ -320,6 +332,9 @@ footer {
     font-family: 'Arial';
     -webkit-transform: translateX(-1rem);
             transform: translateX(-1rem);
+  }
+  h4 {
+    font-size: 2rem;
   }
 }
 /*# sourceMappingURL=styles.css.map */
