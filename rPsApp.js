@@ -44,7 +44,7 @@ const highlight = (computerSelection) => {
 const playRound = (playerSelection, computerSelection) => {
     if (yourScore >= 4 || compScore >= 4) endScreen();
     if (playerSelection.contains('rock') && computerSelection === 'scissors') {
-           resultText.textContent = 'You win! Rock beats scissors.';
+           resultText.textContent = 'You win! Rock smashes scissors.';
         yourScore++;
         scoreboardUpdate();
         console.log('You win! Rock beats scissors.')
@@ -52,17 +52,17 @@ const playRound = (playerSelection, computerSelection) => {
         resultText.textContent = 'You lost.. computer picked paper.';
         compScore++;
         scoreboardUpdate();
-        console.log('You lose.. comp picked paper!');
+        console.log('You lost.. computer picked paper!');
     } else if (playerSelection.contains('rock') && computerSelection === 'rock') {
         resultText.textContent = 'Tie!';
-        console.log('You tied!! Both rock.');
+        console.log('You tied!! Two rocks.');
     } else if (playerSelection.contains('paper') && computerSelection === 'rock') {
-        resultText.textContent = 'You win! Paper beats rock.';
+        resultText.textContent = 'You win! Paper > rock.';
         yourScore++;
         scoreboardUpdate();
         console.log('You win! Paper beats rock.');
     } else if (playerSelection.contains('paper') && computerSelection === 'scissors') {
-        resultText.textContent = 'You lost. :( Scissors cut the paper.';
+        resultText.textContent = 'You lost! Computer cut your paper with scissors.';
         compScore++;
         scoreboardUpdate();
         console.log('You lost. scissors beats papeR!');
@@ -70,7 +70,7 @@ const playRound = (playerSelection, computerSelection) => {
         resultText.textContent = 'Tie!';
         console.log('You tied!! Both paper.');
     } else if (playerSelection.contains('scissors') && computerSelection === 'paper') {
-        resultText.textContent = 'You win! Scissors beats paper.';
+        resultText.textContent = 'You win! Scissors cuts the paper.';
         yourScore++;
         scoreboardUpdate();
         console.log('You win! Scissors beats paper.');
@@ -117,7 +117,7 @@ const restartGame = () => {
     compScore = 0;
     playerScore.textContent = 0;
     computerScore.textContent = 0;
-    resultText.textContent = 'First to 5 wins! GL';
+    resultText.textContent = 'First to 5 wins!';
     computerChoices.forEach((compChoice) => {
         if (compChoice.classList.contains('computerSelected')) {
             compChoice.classList.remove('computerSelected');
