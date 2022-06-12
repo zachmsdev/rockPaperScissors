@@ -1,6 +1,5 @@
-<h1>:scissors: Rock Paper Scissors :newspaper:</h1>
-PSD design to HTML/CSS. The Odin Project tutorial. (Non-Responsive)<br />
-Building from this: https://cdn.statically.io/gh/TheOdinProject/curriculum/main/foundations/html_css/project/odin-project.png
+<h1>:newspaper: Rock Paper Scissors :scissors:</h1>
+
 
 <h2>Practiced Skills</h2>
 <ul>
