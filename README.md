@@ -1,6 +1,7 @@
 <h1>:newspaper: Rock Paper Scissors :scissors:</h1>
-First to the score of 5 wins the game. Randomly generated computer choices. Live scoreboard<br /> updates with each round.
-Computer choices highlighted for clear UX. Mobile + Desktop responsive.<br /> UI was designed in Figma.
+First to the score of 5 wins the game. Randomly generated computer choices. Live scoreboard<br /> updates after each round
+with the computer choices highlighted for clear UX. Mobile + Desktop<br /> responsive. UI was designed in Figma. Start / Gameover 
+screens added.
 
 <h2>Practiced Skills</h2>
 <ul>
